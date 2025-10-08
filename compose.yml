@@ -1,0 +1,20 @@
+services:
+  file-service:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8003:8000
+    # translate .env ROOT_DIRECTORY to docker variable and mount as volume
+    environment:
+      # - ROOT_DIRECTORY=/ROOT_DIRECTORY # for relative dir
+      - ROOT_DIRECTORY=${ROOT_DIRECTORY}
+    volumes:
+      # - ${ROOT_DIRECTORY}:/ROOT_DIRECTORY for relative dir
+      - ${ROOT_DIRECTORY}:${ROOT_DIRECTORY}
+    networks:
+      - file-network
+
+networks:
+  file-network:
+    driver: bridge
