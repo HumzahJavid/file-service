@@ -1,2 +1,2 @@
 # file-service
-A file service for interacting with a file system service, used for CRUD operation on files (not folders)
+A file service for carrying out CRUD operations on files.
